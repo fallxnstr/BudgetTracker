@@ -1,0 +1,266 @@
+import { Button, VerticalBox, GridBox, LineEdit, HorizontalBox } from "std-widgets.slint";
+
+export component AppWindow inherits Window {
+    in property <string> incomeResults: "";
+    in property <string> expenseResults: "";
+    in property <string> balanceResults: "";
+
+    callback add-income(string);
+    callback subtract-income(string);
+
+    width: 700px;
+    height: 550px;
+
+    title: "Budget Tracker";
+
+    icon: @image-url("money.png");
+
+    background: #F6F0ED;
+
+
+    GridLayout {
+        
+        Row {
+            Rectangle {
+                
+                width: 700px;
+                height: 85px;
+                opacity: 76%;
+                background: #59B0CB;
+                Text {
+                    text: "Budget Tracker";
+                    color: #FFFFFF;
+                    horizontal-alignment: center;
+                    font-size: 32px;
+                    font-weight: 900;
+                    font-family: "Montserrat";
+                    x: 34px;
+                    y: 17px;
+                    Rectangle {
+                        
+                    }
+                }
+            }
+
+           
+            
+        }
+        
+
+        
+        HorizontalLayout { // Income
+            spacing: 20px;
+            padding: 25px;
+            
+                Rectangle { 
+                    background: #FFCA42;
+                    width: 315px;
+                    height: 63px;
+                    border-radius: 16px;
+                    drop-shadow-color: grey;
+                    drop-shadow-offset-y: 4px;
+                    drop-shadow-blur: 15px;
+                    Text {
+                        x: 20px;
+                        y: 10px;
+                        text: "Income";
+                        color: #604500;
+                        font-size: 12px;
+                        font-weight: 900;
+                        font-family: "Montserrat";
+                    }
+
+                    Text {
+                        x: 20px;
+                        y: 22px;
+                        text: root.incomeResults;
+                        color: #604500;
+                        font-size: 24px;
+                        font-weight: 900;
+                        font-family: "Montserrat";
+                    }
+                }
+
+                Rectangle { 
+                    background: #FF8181;
+                    width: 315px;
+                    height: 63px;
+                    border-radius: 16px;
+                    drop-shadow-color: grey;
+                    drop-shadow-offset-y: 4px;
+                    drop-shadow-blur: 15px;
+                    Text {
+                        x: 20px;
+                        y: 10px;
+                        text: "Expense";
+                        color: #660000;
+                        font-size: 12px;
+                        font-weight: 900;
+                        font-family: "Montserrat";
+                    }
+
+                    Text {
+                        x: 20px;
+                        y: 22px;
+                        text: root.expenseResults;
+                        color: #660000;
+                        font-size: 24px;
+                        font-weight: 900;
+                        font-family: "Montserrat";
+                    }
+                }
+
+                
+        }
+
+
+    }
+
+    Rectangle {
+        x: 25px;
+        y: 198px; 
+        background: #8DFF7A;
+        width: 652px;
+        height: 63px;
+        border-radius: 16px;
+        drop-shadow-color: grey;
+        drop-shadow-offset-y: 4px;
+        drop-shadow-blur: 15px;
+        Text {
+            x: 20px;
+            y: 10px;
+            text: "Total Balance";
+            color: #0A4B00;
+            font-size: 12px;
+            font-weight: 900;
+            font-family: "Montserrat";
+        }
+
+        Text {
+            x: 20px;
+            y: 22px;
+            text: root.balanceResults;
+            color: #0A4B00;
+            font-size: 24px;
+            font-weight: 900;
+            font-family: "Montserrat";
+        }
+    }
+
+
+    Text { // Add expense
+        x: 289px;
+        y: 283px;
+        text: "Add Expense";
+        color: #00278A;
+        font-size: 16px;
+        font-weight: 900;
+        font-family: "Montserrat";
+    }
+
+ 
+
+
+    
+
+    Rectangle {
+        x: 35px;
+        y: 362px;
+        background: #D9D9D9;
+        width: 629px;
+        height: 38px;
+        border-radius: 15px;
+        inputText := LineEdit {
+            horizontal-alignment: center;
+            input-type: number;
+            font-size: 24px;
+            placeholder-text: "Enter a number";
+            text: "0";
+        
+        }
+    }
+    Text {
+        x: 313px;
+        y: 320px;
+        text: "Amount ($)";
+        color: #00278A;
+        opacity: 60%;
+        font-size: 12px;
+        font-weight: 900;
+        font-family: "Montserrat";
+        
+    }
+    
+    
+    Rectangle {
+        x: 37px;
+        y: 423px; 
+        background: @linear-gradient(90deg, #FFCA42, #FF8181);
+        width: 275px;
+        height: 53px;
+        border-radius: 16px;
+        drop-shadow-color: grey;
+        drop-shadow-offset-y: 4px;
+        drop-shadow-blur: 15px;
+        
+        
+
+        Text {
+            vertical-alignment: center;
+            text: "Add";
+            color: #660000;
+            font-size: 16px;
+            font-weight: 900;
+            font-family: "Montserrat";
+
+            Button {
+                width: 275px;
+                height: 53px;
+                
+                
+
+                clicked => {add-income(inputText.text)}
+            }
+        }
+    }
+
+    Rectangle {
+        x: 388px;
+        y: 423px; 
+        background: @linear-gradient(90deg, #42C6FF, #FF8181);
+        width: 275px;
+        height: 53px;
+        border-radius: 16px;
+        drop-shadow-color: grey;
+        drop-shadow-offset-y: 4px;
+        drop-shadow-blur: 15px;
+        
+
+        Text {
+            vertical-alignment: center;
+            text: "Subtract";
+            color: #00278A;
+            font-size: 16px;
+            font-weight: 900;
+            font-family: "Montserrat";
+
+            Button {
+                width: 275px;
+                height: 53px;
+
+                clicked => {subtract-income(inputText.text)}
+            }
+        }
+    }
+
+    Image {
+        source: @image-url("money-bag.png");
+        colorize: white;
+        width: 52px;
+        height: 52px;
+        x: 632px;
+        y: 17px;
+    }
+
+
+}
