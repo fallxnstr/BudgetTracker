@@ -5,7 +5,7 @@
 Simple app I was developing for the sake of getting familiar with UI design, the Rust language.
 
 ## Usage
-   1. Open the Main.rs file in the scr\ folder, or open the pre-compiled exe located in target\debug.
+   1. Open the App.exe file that is already pre-compiled and optimized. Or open the Main.rs file and compile the app on your machine.
    2. Enter the expense or income into the app
    3. Enjoy your balance tracking. The app will remember your last changes.
 
