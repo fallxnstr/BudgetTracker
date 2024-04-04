@@ -6,4 +6,5 @@ Simple app I was developing for the sake of getting familiar with UI design, the
 
 ## Usage
    1. Enter the expense or income into the app
-   2. Enjoy your balance tracking.
+   2. Enjoy your balance tracking. The app will remember your last changes.
+![image](https://github.com/fallxnstr/BudgetTracker/assets/103467609/6f4726f9-d064-4858-ad36-e19c2227d8e3)
